@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | سيرتي الذكية</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-bg: #f4f7fa;
+            --secondary-bg: #ffffff;
+            --primary-text: #333;
+            --secondary-text: #777;
+            --accent-color: #0070c0;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            margin: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* 1. الهيدر الجديد */
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: var(--secondary-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .app-header .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+        .app-header .logo i {
+            margin-left: 8px;
+        }
+        .user-menu {
+            position: relative;
+        }
+        .user-menu .user-name {
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .user-menu .user-name i {
+            margin-right: 8px;
+        }
+
+        /* 2. لوحة التحكم الرئيسية */
+        .dashboard-header {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: var(--secondary-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        .dashboard-header h1 {
+            margin: 0 0 10px 0;
+        }
+        .dashboard-header .main-cta {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .main-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 112, 192, 0.3);
+        }
+
+        /* 3. مكتبة السير الذاتية */
+        .cv-library {
+            margin-top: 40px;
+        }
+        .cv-library h2 {
+            font-size: 1.6rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .cv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .cv-card {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .cv-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+        .cv-card.master-cv {
+            border: 2px solid var(--accent-color);
+            background-color: #f0f8ff; /* Light blue tint */
+        }
+        .cv-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .cv-card-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        .cv-card-header .master-badge {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 3px 8px;
+            font-size: 0.8rem;
+            border-radius: 5px;
+        }
+        .cv-card-body {
+            flex-grow: 1;
+        }
+        .cv-card-body p {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin: 0;
+        }
+        .cv-card-footer {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .action-btn {
+            padding: 6px 12px;
+            border: 1px solid var(--border-color);
+            background: none;
+            color: var(--primary-text);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+        .action-btn:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+        }
+        .action-btn.delete:hover {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="logo">
+            <i class="fas fa-file-alt"></i>
+            سيرتي الذكية
+        </div>
+        <div class="user-menu">
+            <span class="user-name">
+                <i class="fas fa-user-circle"></i>
+                أحمد المالكي
+            </span>
+            </div>
+    </header>
+
+    <main class="container">
+
+        <section class="dashboard-header">
+            <h1>مرحباً بك مجدداً يا أحمد!</h1>
+            <p>سيرتك الذاتية هي مفتاحك للفرصة القادمة. هل أنت مستعد لتصميم نسخة جديدة؟</p>
+            <a href="#" class="main-cta">
+                <i class="fas fa-magic"></i> خصص سيرتك لوظيفة جديدة
+            </a>
+        </section>
+
+        <section class="cv-library">
+            <h2><i class="fas fa-folder-open"></i> مكتبة سيرك الذاتية</h2>
+            <div class="cv-grid">
+
+                <article class="cv-card master-cv">
+                    <div class="cv-card-header">
+                        <h3>سيرتي الذاتية الأساسية</h3>
+                        <span class="master-badge"><i class="fas fa-star"></i> Master</span>
+                    </div>
+                    <div class="cv-card-body">
+                        <p>آخر تحديث: 2 يوليو 2025</p>
+                    </div>
+                    <div class="cv-card-footer">
+                        <button class="action-btn"><i class="fas fa-eye"></i> عرض</button>
+                        <button class="action-btn"><i class="fas fa-edit"></i> تعديل</button>
+                    </div>
+                </article>
+
+                <article class="cv-card">
+                    <div class="cv-card-header">
+                        <h3>نسخة لوظيفة مدير تسويق - أرامكو</h3>
+                    </div>
+                    <div class="cv-card-body">
+                        <p>آخر تحديث: 5 يوليو 2025</p>
+                    </div>
+                    <div class="cv-card-footer">
+                        <button class="action-btn"><i class="fas fa-eye"></i> عرض</button>
+                        <button class="action-btn"><i class="fas fa-copy"></i> تكرار</button>
+                        <button class="action-btn"><i class="fas fa-download"></i> تحميل PDF</button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i> حذف</button>
+                    </div>
+                </article>
+
+                <article class="cv-card">
+                    <div class="cv-card-header">
+                        <h3>نسخة لوظيفة محلل بيانات - نيوم</h3>
+                    </div>
+                    <div class="cv-card-body">
+                        <p>آخر تحديث: 3 يوليو 2025</p>
+                    </div>
+                    <div class="cv-card-footer">
+                        <button class="action-btn"><i class="fas fa-eye"></i> عرض</button>
+                        <button class="action-btn"><i class="fas fa-copy"></i> تكرار</button>
+                        <button class="action-btn"><i class="fas fa-download"></i> تحميل PDF</button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i> حذف</button>
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
